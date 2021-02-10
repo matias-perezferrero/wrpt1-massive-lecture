@@ -41,7 +41,6 @@ module.exports = {
             return;
         }) 
     },
-    deletePuppy: (req, res) => {},
     updatePuppy: (req, res) => {
         const db = req.app.get('db')
         const { id } = req.params
@@ -68,5 +67,18 @@ module.exports = {
             res.status(500).send(err)
             return;
         }) 
-    }
+    }, 
+    deletePuppy: (req, res) => {
+        const db = req.app.get('db')
+        const { id } = req.params
+
+        db.delete_puppy([id]).then(response => {
+            res.sendStatus(200)
+            return;
+        }).catch(err => {
+            console.log(err)
+            res.status(500).send(err)
+            return;
+        })
+    },
 }

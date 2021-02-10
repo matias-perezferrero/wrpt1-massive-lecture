@@ -12,6 +12,7 @@ app.get('/api/puppies', puppiesCtrl.getAllPuppies)
 app.get('/api/puppies/:id', puppiesCtrl.getPuppy)
 app.post('/api/puppies', puppiesCtrl.addPuppy)
 app.put('/api/puppies/:id', puppiesCtrl.updatePuppy)
+app.delete('/api/puppies/:id', puppiesCtrl.deletePuppy)
 
 
 massive({
